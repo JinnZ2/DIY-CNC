@@ -10,4 +10,4 @@ It is not intended for scaling, commercialization, or mass-production.
 	•	Limitations → It may lack packaging, optimization, or interfaces expected in production software—by design.
 	•	Ethos → Prioritizes anonymity, autonomy, and independence over growth or competition.
 
-Yes.  I built one. 
+Yes.  I built one. [📖 See Scope & Scaling Philosophy](./SCOPE.md)
