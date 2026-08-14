@@ -8,14 +8,9 @@ This project converts a precision desktop CNC into a modular metamaterial fabric
 platform — traditional machining and multi-material printing on one frame, aimed at
 acoustic and structural work.
 
-This design was arrived at independently. Commercial multi-tool changers and hybrid
-additive/subtractive platforms already existed (see [Prior Art](#prior-art)) — they just
-weren't visible from here. Read that convergence as validation rather than as a correction:
-people working separately, with different constraints, landed on the same architecture.
-That is usually a sign the architecture is right.
-
-What this build adds is the version you can source, assemble, and repair yourself — no
-vendor in the loop, and no EOL date.
+Built and documented here so anyone can copy it. Take what's useful, ignore the rest.
+[Related Work](#related-work) lists other systems that solve similar problems, in case one
+of them fits your situation better than this does.
 
 ## Core Architecture
 
@@ -107,58 +102,44 @@ Ordered by how well the literature supports doing this on hobby-grade hardware:
 
 ---
 
-## Prior Art
+## Related Work
 
-**Scope: this section covers the mechanical architecture only.** The control layer is a
-separate question and is treated below.
+Other people solving similar problems. If one of these fits your situation better, use it
+instead — that's a better outcome than following this build out of loyalty.
 
-The mechanical side — a motion platform with a tool changer swapping between print heads and
-cutting tools — has shipped commercially before. Listed here for orientation, not as a
-retraction: the useful part is what can be borrowed from designs that already worked, and
-what their fates suggest about owning your own.
+**Machines**
 
-| System | Relevance |
-|--------|-----------|
-| [E3D ToolChanger](https://www.3dprintingindustry.com/news/review-e3d-motion-system-and-toolchanger-multitool-and-multi-material-3d-printer-186182/) (2018–19) | 4-position changer explicitly mixing extrusion heads, laser engravers, CNC tools, and pick-and-place. Since discontinued — a good argument for owning the design rather than buying it |
-| [Diabase H-Series](https://www.additivemanufacturing.media/articles/diabase-brings-a-machine-tool-perspective-to-fdm) (2019) | 10-position tool changer, up to 5 extruders, Hybrid model mills *and* prints. Closest commercial analogue to this build |
-| [Hybrid additive/subtractive manufacturing](https://www.mdpi.com/2504-4494/9/10/343) | Mature industrial field — DED or LPBF paired with CNC finishing |
-| [Multi-material AM for metamaterials](https://www.sciencedirect.com/science/article/pii/S2590123026012740) | Established review literature; precise material placement and interface control are the known hard parts |
+- [Diabase H-Series](https://www.additivemanufacturing.media/articles/diabase-brings-a-machine-tool-perspective-to-fdm) — 10-position tool changer, up to 5 extruders, mills and prints. Closest commercial equivalent if you'd rather buy than build.
+- [E3D ToolChanger](https://www.3dprintingindustry.com/news/review-e3d-motion-system-and-toolchanger-multitool-and-multi-material-3d-printer-186182/) — 4-position changer mixing extruders, lasers, and CNC tools. Discontinued, but the kinematic coupling design is worth studying.
+- [smevirtual/hybrid-am](https://github.com/smevirtual/hybrid-am) — open-source hybrid FDM/CNC/laser on a Marlin-class controller.
 
-On the mechanical side the differentiator is not novelty. It is sovereignty: sourceable
-parts, a repairable frame, no vendor, and no EOL date.
+**Control**
 
-### The Control Layer Is a Different Question
+- [EMCRepRap](https://reprap.org/wiki/EMCRepRap) — the older approach to bolting an extruder onto LinuxCNC with custom M-codes and HAL. Single extruder, but the glue pattern still holds.
+- [LinuxCNC additive forum](https://forum.linuxcnc.org/additive-manufacturing) — where the multi-extruder questions get worked out. Useful if you hit the same walls.
+- [Hybrid FFF/CNC (2024)](https://www.sciencedirect.com/science/article/pii/S2468067224000300) — peer-reviewed open-source hybrid milling/printing toolchain.
 
-A search of the LinuxCNC ecosystem turns up much less:
+**Background**
 
-| Prior work | What it covers |
-|------------|----------------|
-| [EMCRepRap](https://reprap.org/wiki/EMCRepRap) | Glue scripts bolting a *single* extruder to a CNC via custom M-codes and HAL. Closest match; long stale |
-| [LinuxCNC forum, multiple extruders](https://forum.linuxcnc.org/38-general-linuxcnc-questions/34023-3d-printer-with-multiple-extruders) | Discussion of running extruders as A/B/C axes and rerouting stepper IO on `M6` — open questions, not a released system |
-| [Hybrid FFF/CNC (2024)](https://www.sciencedirect.com/science/article/pii/S2468067224000300) | Peer-reviewed open-source hybrid milling/printing — but built on the E3D ToolChanger's own firmware, not LinuxCNC |
-| [smevirtual/hybrid-am](https://github.com/smevirtual/hybrid-am) | Hobbyist hybrid FDM/CNC/laser on a Marlin-class controller, not LinuxCNC |
-
-No released example was found of LinuxCNC driving automatically tool-changed, multi-head
-print heads through a purpose-built M-code vocabulary. That is an absence of evidence, not
-proof of primacy — but it is where the interesting work in this project sits, and it is the
-part these docs currently describe in the least detail.
+- [Fabricating 3D metamaterials with AM](https://www.mdpi.com/2504-4494/9/10/343) and [acoustic metamaterials review](https://www.sciencedirect.com/science/article/pii/S2590123026012740) — where the hard parts are, before you machine anything.
 
 ---
 
-## Scope of Claims
+## Practical Limits
+
+Things worth knowing before you cut material:
 
 - **Frequency band.** Feature size is bounded by nozzle and end mill diameter, so this
   platform targets audible through low-ultrasonic structures (roughly 100 Hz – 40 kHz),
   which is where the printed-metamaterial literature lives. Optical, THz, and RF
   metamaterials need lithography and are out of reach here.
 - **Surface finish matters.** FDM surface roughness and dimensional deviation measurably
-  degrade acoustic performance. Expect to characterize parts, not trust them.
-- **On "acoustic gravity."** Analogue gravity is a legitimate research field — phonons in
-  hyperbolic metamaterials and Bose-Einstein condensates can model gravitational-wave and
-  black-hole physics. But it is *analogue*: it simulates the mathematics, it does not
-  generate or manipulate gravity. That work also lives in hyperbolic EM metamaterials and
-  ultracold atoms, not in machinable acoustic structures. Nothing on this machine reaches
-  it, and earlier wording in these docs implied otherwise.
+  degrade acoustic performance. Plan to characterize parts rather than trust them.
+- **Analogue gravity is analogue.** Phonons in hyperbolic metamaterials and Bose-Einstein
+  condensates can model gravitational-wave and black-hole physics, and it's real research.
+  But it simulates the mathematics — it doesn't generate or manipulate gravity, and that
+  work needs ultracold atoms or EM metamaterials, not machinable acoustic structures. Don't
+  expect to get there from here.
 
 ---
 
