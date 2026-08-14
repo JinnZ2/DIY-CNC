@@ -18,7 +18,7 @@ This project converts a precision desktop CNC into the world’s first modular m
 
 ### Modular Metamaterial Upgrade
 
-- Automated ISO30 tool changer
+- Automated 30-taper tool changer (BT30 default — see [CNCToolchanger.md](./CNCToolchanger.md))
 - Swappable print heads: metal, flexible, cavity, membrane
 - Material handling: powder, filament, liquids, sheets
 - Real-time quality control: acoustic + vision
@@ -31,7 +31,7 @@ This project converts a precision desktop CNC into the world’s first modular m
 ### Print Head + Tool Changer System
 
 - 8-position pneumatic tool changer
-- ISO30 spindle adapter
+- 30-taper spindle adapter (must match the chosen taper standard)
 - Metamaterial print heads (heated, precision)
 - Fully integrated with LinuxCNC
 
@@ -91,11 +91,23 @@ This project converts a precision desktop CNC into the world’s first modular m
 
 ## Cost Summary
 
-| Item                | Cost    |
-|---------------------|---------|
-| CNC Build Base      | ~$2,500 |
-| Modular Upgrades    | ~$9,300 |
-| Total System Value  | ~$11,800 |
+| Item                | Cost     | Source                                        |
+|---------------------|----------|-----------------------------------------------|
+| CNC Build Base      | ~$2,500  | Top of the $1,800–2,500 range in [CNC-build.md](./CNC-build.md) |
+| Modular Upgrades    | ~$9,300  | Breakdown below                               |
+| Total System Value  | ~$11,800 | Sum of the two                                |
+
+### Upgrade Breakdown (~$9,300)
+
+| Module                       | Cost    | Status                                     |
+|------------------------------|---------|--------------------------------------------|
+| Print Head + Tool Changer    | ~$4,400 | Itemized in [CNCToolchanger.md](./CNCToolchanger.md) |
+| Materials Handling System    | —       | Not yet itemized                           |
+| Quality Control Integration  | —       | Not yet itemized                           |
+| Specialized Workholding      | —       | Not yet itemized                           |
+| Remaining three modules      | ~$4,900 | Balance of the ~$9,300                     |
+
+The ~$4,400 tool changer figure is included in the ~$9,300, not additional to it.
 
 ---
 

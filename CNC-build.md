@@ -93,7 +93,7 @@ Why This Route?
 
 - Tool Mount: Adjustable router clamp
 - Initial Spindle: Palm router (e.g., DeWalt DWP611)
-- Upgrade Path: ISO30 ATC spindle (Phase 2)
+- Upgrade Path: 30-taper ATC spindle (Phase 2) — BT30 recommended, ISO30 as the budget alternative. See [CNCToolchanger.md](./CNCToolchanger.md) for the full spec and the taper decision.
 
 ---
 
@@ -111,6 +111,8 @@ Why This Route?
 
 - Low-cost proof system: ~$300–600 (GRBL build)
 - Precision upgrade version: ~$1,800–2,500 depending on source
+
+The metamaterial upgrade path costs from the top of that range (~$2,500) as its base figure. See [CNC-metamaterial-build.md](./CNC-metamaterial-build.md) for the full system total.
 
 ---
 
