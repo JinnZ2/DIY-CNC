@@ -12,3 +12,6 @@ It is not intended for scaling, commercialization, or mass-production.
 - **Ethos** → Prioritizes anonymity, autonomy, and independence over growth or competition.
 
 Yes.  I built one. [📖 See Scope & Scaling Philosophy](./SCOPE.md)
+
+Claims here get tested and corrected in the open. [`legacy/`](./legacy/README.md) keeps what
+was superseded and why — the method, not just the answers.

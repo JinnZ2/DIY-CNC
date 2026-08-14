@@ -12,6 +12,10 @@ Built and documented here so anyone can copy it. Take what's useful, ignore the 
 [Related Work](#related-work) lists other systems that solve similar problems, in case one
 of them fits your situation better than this does.
 
+Some claims in earlier versions of this doc were tested and didn't hold. What they were and
+why they changed is in [`legacy/`](./legacy/README.md) — kept deliberately, so you can judge
+how much to trust what's left.
+
 ## Core Architecture
 
 ### Existing CNC Platform

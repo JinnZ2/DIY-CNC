@@ -17,10 +17,14 @@ DIY-CNC/
 ├── CNC-build.md                 # CNC machine build guide (two options)
 ├── CNC-metamaterial-build.md    # Modular metamaterial upgrade system
 ├── CNCToolchanger.md            # Tool changer & print head integration
+├── legacy/                      # Superseded claims + why they changed
+│   ├── README.md                # The method, claims ledger, open questions
+│   └── 2025-07-CNC-metamaterial-build.md   # Original doc, verbatim
 └── LICENSE                      # MIT License
 ```
 
-No subdirectories, no code, no config files, no `.gitignore`.
+No code, no config files, no `.gitignore`. One subdirectory (`legacy/`), which is an
+archive — never edit its contents to match current specs. It is deliberately out of date.
 
 ## Document Descriptions
 
@@ -31,6 +35,8 @@ No subdirectories, no code, no config files, no `.gitignore`.
 | `CNC-build.md` | Two build paths: Option A (~$300-600 GRBL prototype) and Option B (~$1,800-2,500 LinuxCNC precision build). Includes frame dimensions, motion system specs, electronics stack, and assembly strategy |
 | `CNC-metamaterial-build.md` | Modular upgrade converting CNC into metamaterial fabrication platform. Covers print heads, materials handling, quality control, and workholding (~$9,300 upgrade, ~$11,800 total) |
 | `CNCToolchanger.md` | BT30 automatic tool changer specs, print head mounting interface, LinuxCNC M-code integration, cable routing, and assembly timeline ($3,450–5,400, ~$4,400 midpoint — this is the first module of the ~$9,300 upgrade, not additional to it) |
+
+| `legacy/README.md` | Claims that were tested and falsified, what replaced them, and the open questions. Kept so the revision process is visible, not just its output |
 
 **Authority for conflicting specs:** `CNCToolchanger.md` is the source of truth for the
 spindle taper standard (BT30 default, ISO30 budget alternative) and for tool changer costs.
