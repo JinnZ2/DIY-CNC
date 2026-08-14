@@ -109,7 +109,10 @@ Ordered by how well the literature supports doing this on hobby-grade hardware:
 
 ## Prior Art
 
-This architecture — a motion platform with a tool changer swapping between print heads and
+**Scope: this section covers the mechanical architecture only.** The control layer is a
+separate question and is treated below.
+
+The mechanical side — a motion platform with a tool changer swapping between print heads and
 cutting tools — has shipped commercially before. Listed here for orientation, not as a
 retraction: the useful part is what can be borrowed from designs that already worked, and
 what their fates suggest about owning your own.
@@ -121,8 +124,24 @@ what their fates suggest about owning your own.
 | [Hybrid additive/subtractive manufacturing](https://www.mdpi.com/2504-4494/9/10/343) | Mature industrial field — DED or LPBF paired with CNC finishing |
 | [Multi-material AM for metamaterials](https://www.sciencedirect.com/science/article/pii/S2590123026012740) | Established review literature; precise material placement and interface control are the known hard parts |
 
-The differentiator here is not novelty. It is sovereignty: sourceable parts, a repairable
-frame, no vendor, and no EOL date.
+On the mechanical side the differentiator is not novelty. It is sovereignty: sourceable
+parts, a repairable frame, no vendor, and no EOL date.
+
+### The Control Layer Is a Different Question
+
+A search of the LinuxCNC ecosystem turns up much less:
+
+| Prior work | What it covers |
+|------------|----------------|
+| [EMCRepRap](https://reprap.org/wiki/EMCRepRap) | Glue scripts bolting a *single* extruder to a CNC via custom M-codes and HAL. Closest match; long stale |
+| [LinuxCNC forum, multiple extruders](https://forum.linuxcnc.org/38-general-linuxcnc-questions/34023-3d-printer-with-multiple-extruders) | Discussion of running extruders as A/B/C axes and rerouting stepper IO on `M6` — open questions, not a released system |
+| [Hybrid FFF/CNC (2024)](https://www.sciencedirect.com/science/article/pii/S2468067224000300) | Peer-reviewed open-source hybrid milling/printing — but built on the E3D ToolChanger's own firmware, not LinuxCNC |
+| [smevirtual/hybrid-am](https://github.com/smevirtual/hybrid-am) | Hobbyist hybrid FDM/CNC/laser on a Marlin-class controller, not LinuxCNC |
+
+No released example was found of LinuxCNC driving automatically tool-changed, multi-head
+print heads through a purpose-built M-code vocabulary. That is an absence of evidence, not
+proof of primacy — but it is where the interesting work in this project sits, and it is the
+part these docs currently describe in the least detail.
 
 ---
 
