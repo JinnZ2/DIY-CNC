@@ -4,7 +4,15 @@ Transform a standard CNC into a bio-design and metamaterial manufacturing platfo
 
 ## System Overview
 
-This project converts a precision desktop CNC into the world’s first modular metamaterial fabrication system. It supports both traditional machining and next-gen material printing for advanced acoustic, structural, and energy research.
+This project converts a precision desktop CNC into a modular metamaterial fabrication
+platform — traditional machining and multi-material printing on one frame, aimed at
+acoustic and structural work.
+
+It is not the first machine to do this, and the docs no longer claim otherwise. Multi-tool
+changers and hybrid additive/subtractive platforms are established prior art — see
+[Prior Art](#prior-art). What this build offers instead is a version you can source,
+assemble, and repair yourself, with no vendor in the loop and no discontinued product to
+strand you.
 
 ## Core Architecture
 
@@ -68,9 +76,16 @@ This project converts a precision desktop CNC into the world’s first modular m
 
 ### Metamaterial Mode
 
-- Fabrication of phononic/gradient-index materials
-- Embedded resonators and bubble cavities
-- Cloaking, energy capture, acoustic gravity tools
+Ordered by how well the literature supports doing this on hobby-grade hardware:
+
+- **Well demonstrated** — phononic crystals and gradient-index (GRIN) acoustic structures.
+  Proof-of-concept GRIN lenses have been printed on desktop FDM machines; Luneburg lenses
+  have been demonstrated for airborne sound (~8 kHz) and ultrasound (~40 kHz)
+- **Well demonstrated** — embedded Helmholtz resonators, cavity arrays, and broadband
+  sound absorbers
+- **Research-grade** — acoustic cloaking. Real, but narrowband: experimental demonstrations
+  sit around 3–8 kHz, and broadband 3D illusion cloaking is still an open problem. Treat as
+  an experiment, not a capability the machine ships with
 
 ### Hybrid Mode
 
@@ -86,6 +101,41 @@ This project converts a precision desktop CNC into the world’s first modular m
 - Print head selection, temperature, flow control
 - Automated part testing and verification
 - Modular job loading and smart part sorting
+
+---
+
+## Prior Art
+
+This architecture — a motion platform with a tool changer swapping between print heads and
+cutting tools — has shipped commercially before. Recording it here so the docs stay honest
+and so the design can borrow from what already worked:
+
+| System | Relevance |
+|--------|-----------|
+| [E3D ToolChanger](https://www.3dprintingindustry.com/news/review-e3d-motion-system-and-toolchanger-multitool-and-multi-material-3d-printer-186182/) (2018–19) | 4-position changer explicitly mixing extrusion heads, laser engravers, CNC tools, and pick-and-place. Since discontinued — a good argument for owning the design rather than buying it |
+| [Diabase H-Series](https://www.additivemanufacturing.media/articles/diabase-brings-a-machine-tool-perspective-to-fdm) (2019) | 10-position tool changer, up to 5 extruders, Hybrid model mills *and* prints. Closest commercial analogue to this build |
+| [Hybrid additive/subtractive manufacturing](https://www.mdpi.com/2504-4494/9/10/343) | Mature industrial field — DED or LPBF paired with CNC finishing |
+| [Multi-material AM for metamaterials](https://www.sciencedirect.com/science/article/pii/S2590123026012740) | Established review literature; precise material placement and interface control are the known hard parts |
+
+The differentiator here is not novelty. It is sovereignty: sourceable parts, a repairable
+frame, no vendor, and no EOL date.
+
+---
+
+## Scope of Claims
+
+- **Frequency band.** Feature size is bounded by nozzle and end mill diameter, so this
+  platform targets audible through low-ultrasonic structures (roughly 100 Hz – 40 kHz),
+  which is where the printed-metamaterial literature lives. Optical, THz, and RF
+  metamaterials need lithography and are out of reach here.
+- **Surface finish matters.** FDM surface roughness and dimensional deviation measurably
+  degrade acoustic performance. Expect to characterize parts, not trust them.
+- **On "acoustic gravity."** Analogue gravity is a legitimate research field — phonons in
+  hyperbolic metamaterials and Bose-Einstein condensates can model gravitational-wave and
+  black-hole physics. But it is *analogue*: it simulates the mathematics, it does not
+  generate or manipulate gravity. That work also lives in hyperbolic EM metamaterials and
+  ultracold atoms, not in machinable acoustic structures. Nothing on this machine reaches
+  it, and earlier wording in these docs implied otherwise.
 
 ---
 
@@ -113,7 +163,7 @@ The ~$4,400 tool changer figure is included in the ~$9,300, not additional to it
 
 ## Strategic Value
 
-- **DIY Metamaterials:** Make advanced structures at home
-- **Research-Ready:** Bridge to acoustic, gravity, or energy exploration
+- **DIY Metamaterials:** Structures at home that otherwise need lab or vendor access
+- **Research-Ready:** Bridge to acoustic and structural experimentation
 - **Modular:** Upgrade and expand over time
-- **Open Source:** Blueprint available for all
+- **Open Source:** Blueprint available for all, no vendor lock-in and no EOL date
