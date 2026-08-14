@@ -8,11 +8,14 @@ This project converts a precision desktop CNC into a modular metamaterial fabric
 platform — traditional machining and multi-material printing on one frame, aimed at
 acoustic and structural work.
 
-It is not the first machine to do this, and the docs no longer claim otherwise. Multi-tool
-changers and hybrid additive/subtractive platforms are established prior art — see
-[Prior Art](#prior-art). What this build offers instead is a version you can source,
-assemble, and repair yourself, with no vendor in the loop and no discontinued product to
-strand you.
+This design was arrived at independently. Commercial multi-tool changers and hybrid
+additive/subtractive platforms already existed (see [Prior Art](#prior-art)) — they just
+weren't visible from here. Read that convergence as validation rather than as a correction:
+people working separately, with different constraints, landed on the same architecture.
+That is usually a sign the architecture is right.
+
+What this build adds is the version you can source, assemble, and repair yourself — no
+vendor in the loop, and no EOL date.
 
 ## Core Architecture
 
@@ -107,8 +110,9 @@ Ordered by how well the literature supports doing this on hobby-grade hardware:
 ## Prior Art
 
 This architecture — a motion platform with a tool changer swapping between print heads and
-cutting tools — has shipped commercially before. Recording it here so the docs stay honest
-and so the design can borrow from what already worked:
+cutting tools — has shipped commercially before. Listed here for orientation, not as a
+retraction: the useful part is what can be borrowed from designs that already worked, and
+what their fates suggest about owning your own.
 
 | System | Relevance |
 |--------|-----------|
