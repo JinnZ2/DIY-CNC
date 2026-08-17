@@ -1,0 +1,9 @@
+# Script-generated user data (databases, exports, configs)
+scripts/*.db
+scripts/*.csv
+scripts/*.json
+scripts/linuxcnc_output/
+
+# Python
+__pycache__/
+*.pyc
