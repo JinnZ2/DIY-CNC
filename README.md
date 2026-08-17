@@ -1,13 +1,17 @@
 # DIY-CNC
 
-🔍 Scope Statement
+## 🔍 Scope Statement
 
 This repository is a prototype designed for personal sufficiency, testing, and symbolic exploration.
 It is not intended for scaling, commercialization, or mass-production.
-	•	Purpose → Serves as a working tool, proof-of-concept, or symbolic framework for local use.
-	•	Design Philosophy → Built on principles of fit-for-purpose sufficiency, resilience, and personal autonomy, not corporate scaling.
-	•	Usage → Treat this as a seed or example, to be adapted or studied as needed. It is complete in scope for its intended function.
-	•	Limitations → It may lack packaging, optimization, or interfaces expected in production software—by design.
-	•	Ethos → Prioritizes anonymity, autonomy, and independence over growth or competition.
+
+- **Purpose** → Serves as a working tool, proof-of-concept, or symbolic framework for local use.
+- **Design Philosophy** → Built on principles of fit-for-purpose sufficiency, resilience, and personal autonomy, not corporate scaling.
+- **Usage** → Treat this as a seed or example, to be adapted or studied as needed. It is complete in scope for its intended function.
+- **Limitations** → It may lack packaging, optimization, or interfaces expected in production software—by design.
+- **Ethos** → Prioritizes anonymity, autonomy, and independence over growth or competition.
 
 Yes.  I built one. [📖 See Scope & Scaling Philosophy](./SCOPE.md)
+
+Claims here get tested and corrected in the open. [`legacy/`](./legacy/README.md) keeps what
+was superseded and why — the method, not just the answers.

@@ -24,6 +24,16 @@ This guide provides detailed specifications and integration instructions for con
 
 Manual swap toolchanger for reduced cost and simplified integration.
 
+### Pick the Taper Standard First
+
+BT30 and ISO30 are both 7:24 #30 tapers, but their retention knobs (pull studs) and
+flange/drive geometry differ — holders are **not** interchangeable between them. Every
+custom print head adapter is machined to whichever standard you pick, so decide before
+cutting any adapters or ordering tool holders.
+
+This repo treats **BT30 as the default** (Option 1). Where the other build docs say
+"30-taper," this file is the authority on which standard is meant.
+
 ---
 
 ## Print Head Mounting Interface Design
@@ -110,10 +120,16 @@ Manual swap toolchanger for reduced cost and simplified integration.
 
 ## Cost Summary
 
-- **Tool Changer System:** $1,750–2,750
-- **Print Head System:** $1,150–1,800
-- **Install Hardware:** $550–850
-- **Total:** ~$4,400
+| Item               | Range         |
+|--------------------|---------------|
+| Tool Changer System| $1,750–2,750  |
+| Print Head System  | $1,150–1,800  |
+| Install Hardware   | $550–850      |
+| **Total**          | **$3,450–5,400** (~$4,400 midpoint) |
+
+This ~$4,400 is the *Print Head + Tool Changer* module only. It is the first of the four
+modules in [CNC-metamaterial-build.md](./CNC-metamaterial-build.md), whose ~$9,300 upgrade
+figure includes it — the two numbers are not alternatives to each other.
 
 ---
 
