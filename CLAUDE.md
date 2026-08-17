@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **documentation-only repository** containing build specifications and design philosophy for a DIY CNC machine and modular metamaterial fabrication system. There is no source code, build system, or CI/CD pipeline — the entire repository consists of markdown files.
+This repository contains build specifications, design philosophy, and **helper scripts** for a DIY CNC machine and modular metamaterial fabrication system. No build system or CI/CD pipeline — the project is documentation plus standalone Python utilities.
 
 **Owner:** JinnZ2
 **License:** MIT (2025)
@@ -25,6 +25,15 @@ DIY-CNC/
 
 No code, no config files, no `.gitignore`. One subdirectory (`legacy/`), which is an
 archive — never edit its contents to match current specs. It is deliberately out of date.
+
+├── LICENSE                      # MIT License
+└── scripts/                     # Python helper utilities (stdlib only)
+    ├── hardware_sourcer.py      # Find parts locally, track suppliers & salvage subs
+    ├── measurement_helper.py    # Precision measuring with imprecise tools
+    ├── bom_calculator.py        # Bill of materials tracker with budget impact
+    ├── cut_optimizer.py         # Cut list optimizer to minimize extrusion waste
+    └── linuxcnc_config.py       # LinuxCNC INI/HAL config file generator
+```
 
 ## Document Descriptions
 
@@ -72,12 +81,28 @@ The other docs say "30-taper" and link to it rather than restating a standard.
 - Emoji usage is acceptable in headers (existing docs use them sparingly)
 - Documents reference future files that may not exist yet (e.g., `/docs/metamaterial_extension.md`)
 
+## Helper Scripts (`scripts/`)
+
+All scripts are **Python 3 stdlib only** — zero pip installs, fully offline. Each has both an interactive menu and CLI flags.
+
+| Script | Purpose | Run |
+|--------|---------|-----|
+| `hardware_sourcer.py` | Local parts database with suppliers, salvage alternatives, and substitution options. Seeds from CNC-build.md specs. SQLite-backed. | `python scripts/hardware_sourcer.py` |
+| `measurement_helper.py` | Squareness checks, leveling, repeated-measurement statistics, tool calibration, 3-4-5 method, unit conversion. No database. | `python scripts/measurement_helper.py` |
+| `bom_calculator.py` | Full BOM for Options A, B, and Metamaterial. Track acquisitions, generate shopping lists, export CSV/JSON. SQLite-backed. | `python scripts/bom_calculator.py` |
+| `cut_optimizer.py` | First-fit-decreasing bin packing for extrusion cuts. Compares stock lengths, accounts for saw kerf, visual cut diagrams. | `python scripts/cut_optimizer.py` |
+| `linuxcnc_config.py` | Generates INI, HAL, tool table, and postgui files for Mesa 7i76e or parallel port setups based on your motor/screw/driver choices. | `python scripts/linuxcnc_config.py` |
+
+**Generated files** (databases, exports, LinuxCNC output) are gitignored — they contain user-specific data.
+
 ## What AI Assistants Should Know
 
-1. **No build/test/lint commands exist** — this is pure documentation
-2. **Do not add unnecessary tooling** (package.json, linters, CI) unless explicitly asked
-3. **Respect the minimalist ethos** — don't suggest scaling, SaaS patterns, or enterprise tooling
-4. **Keep specs accurate** — component specifications, dimensions, and costs are carefully chosen
-5. **Preserve the project's voice** — direct, practical, sovereignty-focused
-6. **Tables may render imperfectly** — some docs have formatting notes about mobile editing; don't "fix" intentional formatting guidance
-7. **The project is a seed, not a startup** — treat it accordingly
+1. **No build/test/lint commands** — scripts run directly with `python3`, no setup required
+2. **Stdlib only** — never add pip dependencies; sqlite3 is part of stdlib
+3. **Do not add unnecessary tooling** (package.json, linters, CI) unless explicitly asked
+4. **Respect the minimalist ethos** — don't suggest scaling, SaaS patterns, or enterprise tooling
+5. **Keep specs accurate** — component specifications, dimensions, and costs are carefully chosen
+6. **Preserve the project's voice** — direct, practical, sovereignty-focused
+7. **Tables may render imperfectly** — some docs have formatting notes about mobile editing; don't "fix" intentional formatting guidance
+8. **The project is a seed, not a startup** — treat it accordingly
+9. **Script databases are user data** — never commit `.db`, `.csv`, `.json` exports, or `linuxcnc_output/`
