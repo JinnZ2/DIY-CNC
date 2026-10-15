@@ -106,3 +106,18 @@ All scripts are **Python 3 stdlib only** — zero pip installs, fully offline. E
 7. **Tables may render imperfectly** — some docs have formatting notes about mobile editing; don't "fix" intentional formatting guidance
 8. **The project is a seed, not a startup** — treat it accordingly
 9. **Script databases are user data** — never commit `.db`, `.csv`, `.json` exports, or `linuxcnc_output/`
+
+<!-- clone-refspec-note v1.1 -->
+## Cloning and pushing
+Shallow clones are single-branch by default.
+Before pushing any branch other than the default
+branch, run:
+
+    git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+    git fetch --depth 1
+
+Or clone with: git clone --depth 1 --no-single-branch <url>
+Without this, the first push of a new branch
+fails the tracking-ref check even when the
+commit landed.
+<!-- /clone-refspec-note v1.1 -->
