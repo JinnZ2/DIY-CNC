@@ -1,3 +1,5 @@
+Read [READ_ME_THIS_WAY.md](READ_ME_THIS_WAY.md) first.
+
 # DIY-CNC
 
 ## 🔍 Scope Statement
@@ -15,3 +17,7 @@ Yes.  I built one. [📖 See Scope & Scaling Philosophy](./SCOPE.md)
 
 Claims here get tested and corrected in the open. [`legacy/`](./legacy/README.md) keeps what
 was superseded and why — the method, not just the answers.
+
+## License
+
+JinnZ2's own work in this repository is dedicated to the public domain under [CC0 1.0 Universal](LICENSE). See [LICENSE_HISTORY.md](LICENSE_HISTORY.md) for the 2026-10-15 transition, preserved prior MIT terms, and any exceptions.

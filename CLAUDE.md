@@ -5,7 +5,7 @@
 This repository contains build specifications, design philosophy, and **helper scripts** for a DIY CNC machine and modular metamaterial fabrication system. No build system or CI/CD pipeline — the project is documentation plus standalone Python utilities.
 
 **Owner:** JinnZ2
-**License:** MIT (2025)
+**License:** CC0 1.0 Universal for JinnZ2's own work; see `LICENSE_HISTORY.md` for prior terms and exceptions.
 
 ## Repository Structure
 
@@ -20,13 +20,13 @@ DIY-CNC/
 ├── legacy/                      # Superseded claims + why they changed
 │   ├── README.md                # The method, claims ledger, open questions
 │   └── 2025-07-CNC-metamaterial-build.md   # Original doc, verbatim
-└── LICENSE                      # MIT License
+└── LICENSE                      # CC0 1.0 Universal (JinnZ2's own work)
 ```
 
 No code, no config files, no `.gitignore`. One subdirectory (`legacy/`), which is an
 archive — never edit its contents to match current specs. It is deliberately out of date.
 
-├── LICENSE                      # MIT License
+├── LICENSE                      # CC0 1.0 Universal (JinnZ2's own work)
 └── scripts/                     # Python helper utilities (stdlib only)
     ├── hardware_sourcer.py      # Find parts locally, track suppliers & salvage subs
     ├── measurement_helper.py    # Precision measuring with imprecise tools
@@ -106,3 +106,18 @@ All scripts are **Python 3 stdlib only** — zero pip installs, fully offline. E
 7. **Tables may render imperfectly** — some docs have formatting notes about mobile editing; don't "fix" intentional formatting guidance
 8. **The project is a seed, not a startup** — treat it accordingly
 9. **Script databases are user data** — never commit `.db`, `.csv`, `.json` exports, or `linuxcnc_output/`
+
+<!-- clone-refspec-note v1.1 -->
+## Cloning and pushing
+Shallow clones are single-branch by default.
+Before pushing any branch other than the default
+branch, run:
+
+    git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+    git fetch --depth 1
+
+Or clone with: git clone --depth 1 --no-single-branch <url>
+Without this, the first push of a new branch
+fails the tracking-ref check even when the
+commit landed.
+<!-- /clone-refspec-note v1.1 -->
