@@ -5,7 +5,7 @@
 This repository contains build specifications, design philosophy, and **helper scripts** for a DIY CNC machine and modular metamaterial fabrication system. No build system or CI/CD pipeline — the project is documentation plus standalone Python utilities.
 
 **Owner:** JinnZ2
-**License:** MIT (2025)
+**License:** CC0 1.0 Universal for JinnZ2's own work; see `LICENSE_HISTORY.md` for prior terms and exceptions.
 
 ## Repository Structure
 
@@ -20,13 +20,13 @@ DIY-CNC/
 ├── legacy/                      # Superseded claims + why they changed
 │   ├── README.md                # The method, claims ledger, open questions
 │   └── 2025-07-CNC-metamaterial-build.md   # Original doc, verbatim
-└── LICENSE                      # MIT License
+└── LICENSE                      # CC0 1.0 Universal (JinnZ2's own work)
 ```
 
 No code, no config files, no `.gitignore`. One subdirectory (`legacy/`), which is an
 archive — never edit its contents to match current specs. It is deliberately out of date.
 
-├── LICENSE                      # MIT License
+├── LICENSE                      # CC0 1.0 Universal (JinnZ2's own work)
 └── scripts/                     # Python helper utilities (stdlib only)
     ├── hardware_sourcer.py      # Find parts locally, track suppliers & salvage subs
     ├── measurement_helper.py    # Precision measuring with imprecise tools
